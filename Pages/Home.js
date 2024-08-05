@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import { Basic } from "../components/Basic/Basic";
 import { Homestyles } from "./Home.style";
 import { getWeatherIcon } from "../utils/meteo-utils";
+import { MateoAdvanced } from "../components/Advanced/MateoAdvanced";
 
 const Home = ({ weather, city }) => {
   const currentWeather = weather.current_weather;
@@ -23,7 +24,11 @@ const Home = ({ weather, city }) => {
         <Text style={Homestyles.txt}>Search bar</Text>
       </View>
       <View style={Homestyles.advanced}>
-        <Text style={Homestyles.txt}>Advanced weather info</Text>
+        <MateoAdvanced
+          sunrise={weather.daily.sunrise[0].split("T")[1]}
+          sunset={weather.daily.sunrise[0].split("T")[1]}
+          windspeed={currentWeather.windspeed}
+        />
       </View>
     </>
   );
