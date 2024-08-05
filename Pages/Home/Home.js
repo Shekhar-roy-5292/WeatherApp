@@ -1,8 +1,8 @@
 import { View, Text } from "react-native";
-import { Basic } from "../components/Basic/Basic";
-import { Homestyles } from "./Home.style";
-import { getWeatherIcon } from "../utils/meteo-utils";
-import { MateoAdvanced } from "../components/Advanced/MateoAdvanced";
+import { Basic } from "../../components/Basic/Basic";
+import { Homestyles } from "../Home/Home.style";
+import { getWeatherIcon } from "../../utils/meteo-utils";
+import { MateoAdvanced } from "../../components/Advanced/MateoAdvanced";
 
 const Home = ({ weather, city }) => {
   const currentWeather = weather.current_weather;

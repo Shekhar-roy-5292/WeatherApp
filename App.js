@@ -1,15 +1,24 @@
 import { SafeAreaView, ImageBackground } from "react-native";
-import Home from "./Pages/Home";
-import { Homestyles } from "./Pages/Home.style";
+import Home from "./Pages/Home/Home";
+import { Homestyles } from "./Pages/Home/Home.style";
 import background from "./assets/background.png";
 import {
   getCurrentPositionAsync,
   requestForegroundPermissionsAsync,
 } from "expo-location";
-import React from "react";
 import { MateoAPI } from "./api/mateo";
 import { useFonts } from "expo-font";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Forecast } from "./Pages/Forecasts/Forcasts";
+const Stack = createNativeStackNavigator();
 
+const navTheme = {
+  colors: {
+    background: "transparent",
+  },
+};
 const App = () => {
   const [Pos, setPos] = React.useState();
   const [weather, setWeather] = React.useState();
@@ -59,17 +68,27 @@ const App = () => {
   }, [Pos, weather, City]);
 
   return (
-    <ImageBackground
-      imageStyle={Homestyles.img}
-      style={Homestyles.backgroundImage}
-      source={background}
-    >
-      <SafeAreaView style={Homestyles.container}>
-        {isFontLoaded && weather && City && (
-          <Home city={City} weather={weather} />
-        )}
-      </SafeAreaView>
-    </ImageBackground>
+    <NavigationContainer theme={navTheme}>
+      <ImageBackground
+        imageStyle={Homestyles.img}
+        style={Homestyles.backgroundImage}
+        source={background}
+      >
+        <SafeAreaView style={Homestyles.container}>
+          {isFontLoaded && weather && City && (
+            <Stack.Navigator
+              screenOptions={{ headerShown: false }}
+              initialRouteName="Home"
+            >
+              <Stack.Screen name="Home">
+                {() => <Home city={City} weather={weather} />}
+              </Stack.Screen>
+              <Stack.Screen name="Forecast" component={Forecast} />
+            </Stack.Navigator>
+          )}
+        </SafeAreaView>
+      </ImageBackground>
+    </NavigationContainer>
   );
 };
 export default App;
