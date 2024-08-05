@@ -1,5 +1,15 @@
 {
   "expo": {
+    "jsEngine": "hermes",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ],
+      "expo-font"
+    ],
     "name": "WeatherApp",
     "slug": "WeatherApp",
     "version": "1.0.0",
