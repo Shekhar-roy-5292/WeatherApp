@@ -1,4 +1,4 @@
-import { SafeAreaView, ImageBackground } from "react-native";
+import { SafeAreaView, ImageBackground, Alert } from "react-native";
 import Home from "./Pages/Home/Home";
 import { Homestyles } from "./Pages/Home/Home.style";
 import background from "./assets/background.png";
@@ -49,6 +49,15 @@ const App = () => {
     setCity(CityRes);
   }
 
+  async function fetchCoordsByCity(city) {
+    try {
+      const coordsRes = await MateoAPI.fetchCoords(city);
+      setPos(coordsRes);
+    } catch (error) {
+      Alert.alert("Type Correct city name", error);
+    }
+  }
+
   const getUserLocation = async () => {
     const { status } = await requestForegroundPermissionsAsync();
     if (status === "granted") {
@@ -81,7 +90,13 @@ const App = () => {
               initialRouteName="Home"
             >
               <Stack.Screen name="Home">
-                {() => <Home city={City} weather={weather} />}
+                {() => (
+                  <Home
+                    city={City}
+                    weather={weather}
+                    onSubmitSearch={fetchCoordsByCity}
+                  />
+                )}
               </Stack.Screen>
               <Stack.Screen name="Forecast" component={Forecast} />
             </Stack.Navigator>

@@ -27,4 +27,17 @@ export class MateoAPI {
     ).data;
     return city || village || town;
   }
+
+  static async fetchCoords(city) {
+    try {
+      const { latitude: lat, longitude: lng } = (
+        await axios.get(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`
+        )
+      ).data.results[0];
+      return { lat, lng };
+    } catch (error) {
+      throw "City not found";
+    }
+  }
 }

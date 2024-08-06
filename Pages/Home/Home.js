@@ -3,8 +3,9 @@ import { Basic } from "../../components/Basic/Basic";
 import { Homestyles } from "../Home/Home.style";
 import { getWeatherIcon } from "../../utils/meteo-utils";
 import { MateoAdvanced } from "../../components/Advanced/MateoAdvanced";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 
-const Home = ({ weather, city }) => {
+const Home = ({ weather, city, onSubmitSearch }) => {
   const currentWeather = weather.current_weather;
   const currentInterpretation = getWeatherIcon(currentWeather.weathercode);
   const dailyWeather = weather.daily;
@@ -24,7 +25,7 @@ const Home = ({ weather, city }) => {
         />
       </View>
       <View style={Homestyles.searchBar}>
-        <Text style={Homestyles.txt}>Search bar</Text>
+        <SearchBar onSubmit={onSubmitSearch} />
       </View>
       <View style={Homestyles.advanced}>
         <MateoAdvanced
