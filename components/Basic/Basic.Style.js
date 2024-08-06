@@ -5,11 +5,11 @@ export const BasicStyles = StyleSheet.create({
     alignItems: "flex-end",
   },
   city: {},
-  interpretation: {
+  interpretation_container: {
     alignSelf: "flex-end",
     transform: [{ rotate: "-90deg" }],
   },
-  interpretation_txt:{
+  interpretation_txt: {
     fontSize: 20,
     color: "white",
     fontFamily: "Alata-Regular",
@@ -17,14 +17,17 @@ export const BasicStyles = StyleSheet.create({
   temperature_box: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "baseline",
-    borderBlockColor: "black",
+    alignItems: "center",
+  },
+  temperature_container: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   temperature: {
-    fontSize: 130,
+    fontSize: 120,
   },
   image: {
-    height: 100,
-    width: 100,
+    height: 90,
+    width: 90,
   },
 });

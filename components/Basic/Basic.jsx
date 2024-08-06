@@ -14,16 +14,17 @@ export function Basic({ temperature, interpretation, city, dailyWeather }) {
       <View style={BasicStyles.city}>
         <Txt>{city}</Txt>
       </View>
-      <View style={BasicStyles.interpretation}>
+      <View style={BasicStyles.interpretation_container}>
         <Txt style={BasicStyles.interpretation_txt}>{interpretation.label}</Txt>
       </View>
       <View style={BasicStyles.temperature_box}>
         <TouchableOpacity
-          onPress={() => nav.navigate("Forecast", { city,dailyWeather })}
+          onPress={() => nav.navigate("Forecast", { city, dailyWeather })}
+          style={BasicStyles.temperature_container}
         >
           <Txt style={BasicStyles.temperature}>{temperature}°</Txt>
-          <Image style={BasicStyles.image} source={interpretation.image} />
         </TouchableOpacity>
+        <Image style={BasicStyles.image} source={interpretation.image} />
       </View>
     </>
   );

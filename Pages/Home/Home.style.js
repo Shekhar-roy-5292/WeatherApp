@@ -7,6 +7,7 @@ export const Homestyles = StyleSheet.create({
     flex: 2,
     paddingTop: 30,
     paddingHorizontal: 20,
+
   },
   searchBar: {
     flex: 2,
