@@ -7,14 +7,17 @@ import { MateoAdvanced } from "../../components/Advanced/MateoAdvanced";
 const Home = ({ weather, city }) => {
   const currentWeather = weather.current_weather;
   const currentInterpretation = getWeatherIcon(currentWeather.weathercode);
+  const dailyWeather = weather.daily;
 
-  console.log("Current Weather:", currentWeather);
-  console.log("City:", city);
+  // console.log("Current Weather:", currentWeather);
+  // console.log("City:", city);
+  // console.log("daily:", dailyWeather);
 
   return (
     <>
       <View style={Homestyles.basic}>
         <Basic
+          dailyWeather={dailyWeather}
           city={city}
           interpretation={currentInterpretation}
           temperature={Math.round(currentWeather.temperature)}

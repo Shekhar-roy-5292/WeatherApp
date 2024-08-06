@@ -62,9 +62,9 @@ const App = () => {
     }
   };
   React.useEffect(() => {
-    console.log("Position:", Pos);
-    console.log("Weather:", weather);
-    console.log("City:", City);
+    // console.log("Position:", Pos);
+    // console.log("Weather:", weather);
+    // console.log("City:", City);
   }, [Pos, weather, City]);
 
   return (
@@ -77,7 +77,7 @@ const App = () => {
         <SafeAreaView style={Homestyles.container}>
           {isFontLoaded && weather && City && (
             <Stack.Navigator
-              screenOptions={{ headerShown: false }}
+              screenOptions={{ headerShown: false, Animation: "fade" }}
               initialRouteName="Home"
             >
               <Stack.Screen name="Home">

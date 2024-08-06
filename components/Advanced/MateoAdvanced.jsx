@@ -10,16 +10,16 @@ export function MateoAdvanced({ sunrise, sunset, windspeed }) {
   return (
     <View style={AdvanceStyles.container}>
       <StyledContainer>
-        <StyledLabel>{sunrise}</StyledLabel>
-        <StyledValue>Sunrise</StyledValue>
+        <StyledValue>{sunrise}</StyledValue>
+        <StyledLabel>Sunrise</StyledLabel>
       </StyledContainer>
       <StyledContainer>
-        <StyledLabel>{sunset}</StyledLabel>
-        <StyledValue>Sunset</StyledValue>
+        <StyledValue>{sunset}</StyledValue>
+        <StyledLabel>Sunset</StyledLabel>
       </StyledContainer>
       <StyledContainer>
-        <StyledLabel>{windspeed}</StyledLabel>
-        <StyledValue>Windspeed</StyledValue>
+        <StyledValue>{windspeed}km/h</StyledValue>
+        <StyledLabel>Windspeed</StyledLabel>
       </StyledContainer>
     </View>
   );

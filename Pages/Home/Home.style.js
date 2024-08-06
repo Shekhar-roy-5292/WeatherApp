@@ -14,6 +14,7 @@ export const Homestyles = StyleSheet.create({
   },
   advanced: {
     flex: 1,
+    padding:10
   },
   backgroundImage: {
     flex: 1,
