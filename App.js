@@ -66,14 +66,15 @@ const App = () => {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
       });
-    } else {
-      setPos({ lat: "48.85", lng: "2.35" });
-    }
+    } 
+    // else {
+    //   setPos({ lat: "48.85", lng: "2.35" });
+    // }
   };
   React.useEffect(() => {
-    // console.log("Position:", Pos);
+    console.log("Position:", Pos);
     // console.log("Weather:", weather);
-    // console.log("City:", City);
+    console.log("City:", City);
   }, [Pos, weather, City]);
 
   return (

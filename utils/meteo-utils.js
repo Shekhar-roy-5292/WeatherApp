@@ -20,7 +20,7 @@ export const WEATHER_INTERPRETATION = [
     label: "Snowy",
   },
   {
-    codes: [96, 99],
+    codes: [95, 96, 99],
     image: require("../assets/thunder.png"),
     label: "Thunderstorm",
   },
